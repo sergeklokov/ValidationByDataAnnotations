@@ -14,13 +14,10 @@ namespace ValidationByDataAnnotations
         [Required(ErrorMessage = "LastName is required")]
         public string LastName { get; set; }
 
+        [Range(1, 120, ErrorMessage = "Age is wrong")]
+        public int Age { get; set; }
 
-        private int m_Age;
-        [Range(1, 120, ErrorMessage="Age is wrong")]
-        public int Age
-        {
-            get { return m_Age; }
-            set { m_Age = value; }
-        }
+        [RegularExpression(@"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ErrorMessage = "IP address is wrong")]
+        public string IpAddress { get; set; }
     }
 }

@@ -26,7 +26,11 @@ namespace ValidationByDataAnnotations
 
             // **************************************** 
 
-            var person2 = new Person { Name = "Bad", Age = 300 };
+            var person2 = new Person { 
+                Name = "Bad", 
+                Age = 300,
+                IpAddress = "23432432.23.323:3"};
+
             validationContext = new ValidationContext(person2, serviceProvider: null, items: null);
             validationResults = new List<ValidationResult>();
             isValid = Validator.TryValidateObject(person2, validationContext, validationResults, true);
