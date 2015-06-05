@@ -9,15 +9,18 @@ namespace ValidationByDataAnnotations
 {
     public class Person
     {
-        public string Name { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "Should be positive")]
+        public int PersonID { get; set; }
 
-        [Required(ErrorMessage = "LastName is required")]
+        public string FirstName { get; set; }
+
+        [Required]
         public string LastName { get; set; }
 
-        [Range(1, 120, ErrorMessage = "Age is wrong")]
+        [Range(1, 150)]
         public int Age { get; set; }
 
-        [RegularExpression(@"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ErrorMessage = "IP address is wrong")]
+        [RegularExpression(@"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ErrorMessage = "Dude, IP address is wrong!")]
         public string IpAddress { get; set; }
     }
 }
